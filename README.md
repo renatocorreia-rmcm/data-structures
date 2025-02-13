@@ -1,3 +1,3 @@
 # data-structures  
 
-object oriented implementation of basic data structures <!-- This is a comment -->
+object oriented implementation of basic data structures in C++  <!-- This is a comment -->
