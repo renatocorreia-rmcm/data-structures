@@ -1,7 +1,7 @@
 // linked stack
 
 #include <iostream>
-#include "../node.hpp"
+#include "../node/node.hpp"
 
 #ifndef STACK_HPP
 #define STACK_HPP
