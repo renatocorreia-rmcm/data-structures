@@ -7,4 +7,5 @@ also my first git project
 ## backlog
 <ul>
     <li>template structures
+    <li>exceptions throw
 </ul>
