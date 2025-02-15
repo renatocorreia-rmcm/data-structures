@@ -25,10 +25,11 @@ public:
         head = tail = curr = new node();
     }
 
+
     void push(int value){
         node* new_node = new node(value);
         curr = new_node;
-        
+
     }
 
     void remove(){
@@ -48,6 +49,7 @@ public:
         {
             throw("list underflow");
         }
+        
         return ;
     }
 
