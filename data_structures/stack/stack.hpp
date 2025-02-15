@@ -23,7 +23,7 @@ public:
         top = new node(NULL, nullptr);
     }
 
-    void push(char value){
+    void push(int value){
         node* new_node = new node(value, top);
         top = new_node;
     }
