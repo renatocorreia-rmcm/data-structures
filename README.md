@@ -11,5 +11,5 @@ also its my first git project
     <li>study .md
 </ul>
 
-<hr>
+<br><hr>
 https://sites.google.com/a/cin.ufpe.br/if672/slides
