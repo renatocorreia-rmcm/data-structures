@@ -10,3 +10,6 @@ also its my first git project
     <li>throw exceptions
     <li>study .md
 </ul>
+
+<hr>
+https://sites.google.com/a/cin.ufpe.br/if672/slides
