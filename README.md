@@ -2,10 +2,11 @@
 
 object oriented implementation of basic data structures in C++  <!-- This is a comment -->
 
-also my first git project
+also its my first git project
 
 ## backlog
 <ul>
     <li>template structures
-    <li>exceptions throw
+    <li>throw exceptions
+    <li>study .md
 </ul>
