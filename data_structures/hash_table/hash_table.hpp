@@ -1,4 +1,60 @@
-#include "../list/list.hpp"
+class node{
+public:
+    int data;
+    node* next;
+    node(int data=0, node* next = nullptr): data(data), next(next) {}
+};
+class list{
+private:
+    node* head;
+    node* tail;
+public:
+    
+    bool find(int value){
+        node* itr = head;
+        while (itr->next != nullptr)
+        {
+            if (itr->next->data == value)
+            {
+                return true;
+            }
+            itr = itr->next;
+        }
+        return false;
+    }
+
+    void remove(int value){
+        node* itr = head;
+        while (itr != nullptr)
+        {
+            if (itr->next->data == value)
+            {
+                node* trash = itr->next;
+                itr->next = itr->next->next;
+                if (trash == tail)
+                {
+                    tail = head;
+                }
+                
+                delete trash;
+                return;
+            }
+            itr = itr->next;
+        }
+        
+    }
+
+    void push(int value){
+        tail->next = new node(value);
+        tail = tail->next;
+    }
+
+    list(){
+        head = tail = new node();
+    }
+};
+
+
 
 class hash_table
 {
@@ -17,16 +73,29 @@ public:
 
     void add(int key){
         int hash_address = hash_function(key);
-        if (keys[hash_address]==nullptr)
-        {
-            /* code */
-        }
+        
+        keys[hash_address]->push(key);
         
     }
 
-    hash_table(int m, int n){
+    void remove(int key){
+        int hash_address = hash_function(key);
+
+        keys[hash_address]->remove(key);
+    }
+
+    bool find(int key){
+        int hash_address = hash_function(key);
+
+        return keys[hash_address]->find(key);
+    }
+
+    hash_table(int m): m(m){
         keys = new list*[m];
-        
+        for (int i = 0; i < m; i++)
+        {
+            (keys)[i] = new list();
+        }
     };
     
 };
