@@ -8,6 +8,7 @@ public:
     node(int value, node* left=nullptr, node*right=nullptr): value(value), left(left), right(right){}
 };
 
+
 class binary_tree
 {
 private:
@@ -15,7 +16,7 @@ private:
     node* ptr;  // element, if it exists, or its supposed parent, if dont
 
     
-    bool rec_find(int value, node *sub_root){
+    bool find(int value, node *sub_root){
         if (sub_root == nullptr)
         {
             return false;
@@ -24,11 +25,11 @@ private:
         if (value > sub_root->value)
         {
 
-            return rec_find(value, sub_root->right);
+            return find(value, sub_root->right);
         }
         else if (value < sub_root->value)
         {
-            return rec_find(value, sub_root->left);
+            return find(value, sub_root->left);
         }
         else
         {
@@ -37,13 +38,21 @@ private:
         }
     }
 
+    int get_height(node *sub_root){
+        if (sub_root==nullptr)
+        {
+            return 0;
+        }
+        
+        return std::max(get_height(sub_root->left), get_height(sub_root->right))+1;
+    }
+
 public:
 
     bool find(int value){
 
-        return rec_find(value, root);
+        return find(value, root);
     }
-
 
     void insert(int value){
         if (root == nullptr)  // empty tree
@@ -63,6 +72,10 @@ public:
             
         }
 
+    }
+
+    int get_height(){
+        return get_height(root);
     }
 
     binary_tree(){
