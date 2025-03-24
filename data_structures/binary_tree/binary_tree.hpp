@@ -47,18 +47,25 @@ private:
         return std::max(get_height(sub_root->left), get_height(sub_root->right))+1;
     }
 
-    void rec_print_preorder(node* root){
+    void print_preorder(node* root){
         cout << root->value << " ";
         if (root->left!=nullptr)
         {
-            rec_print_preorder(root->left);
+            print_preorder(root->left);
         }
         if (root->right!=nullptr){
-            rec_print_preorder(root->right);
+            print_preorder(root->right);
         }
-        
-        
-        
+    }
+    void print_inorder(node* root){
+        if (root->left!=nullptr)
+        {
+            print_preorder(root->left);
+        }
+        cout << root->value << " ";
+        if (root->right!=nullptr){
+            print_preorder(root->right);
+        }
     }
 
 public:
@@ -73,27 +80,37 @@ public:
         {
             root = new node(value);
         }
-        
-        if (!find(value)){
+        else
+        {
+            find(value);
+
             if (value < ptr->value)
             {
                 ptr->left = new node(value);
             }
-            else if (value > ptr->value)
+            else
             {
                 ptr->right = new node(value);
             }
-            
         }
+        
+
 
     }
 
     void print_preorder(){
         if (root!=nullptr)
         {
-            rec_print_preorder(root);
+            print_preorder(root);
         }
         
+    }
+
+    void print_inorder(){
+        if (root!=nullptr)
+        {
+            print_inorder(root);
+        }
     }
 
     int get_height(){
