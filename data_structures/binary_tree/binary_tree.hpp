@@ -16,26 +16,30 @@ private:
     node* ptr;  // element, if it exists, or its supposed parent, if dont
 
     
-    bool find(int value, node *sub_root){
+    bool find(int value, node *sub_root, bool last = false){
         if (sub_root == nullptr)
         {
             return false;
         }
         ptr = sub_root;
-        if (value > sub_root->value)
+        if (value < sub_root->value)
         {
-
-            return find(value, sub_root->right);
+            return find(value, sub_root->left, last);
         }
-        else if (value < sub_root->value)
+        else if (value > sub_root->value)
         {
-            return find(value, sub_root->left);
+            return find(value, sub_root->right, last);
+        }
+        else if (last && sub_root->right!=nullptr)
+        {
+            return find(value, sub_root->right, last);
         }
         else
         {
-
             return true;
         }
+        
+        
     }
 
     int get_height(node *sub_root){
@@ -68,6 +72,15 @@ private:
             print_inorder(root->right);
         }
     }
+    void print_posorder(node* root){
+        if (root->left!=nullptr){
+            print_posorder(root->left);
+        }
+        if (root->right!=nullptr){
+            print_posorder(root->right);
+        }
+        cout << root->value << " ";
+    }
 
 public:
 
@@ -83,7 +96,7 @@ public:
         }
         else
         {
-            find(value);
+            find(value, root, true);
 
             if (value < ptr->value)
             {
@@ -111,6 +124,14 @@ public:
         if (root!=nullptr)
         {
             print_inorder(root);
+        }
+        cout << '\n';
+    }
+
+    void print_posorder(){
+        if (root!=nullptr)
+        {
+            print_posorder(root);
         }
         cout << '\n';
     }

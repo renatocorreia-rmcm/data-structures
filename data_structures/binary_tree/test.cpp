@@ -34,6 +34,7 @@ int main(){
 
     bt.print_preorder();
     bt.print_inorder();
+    bt.print_posorder();
 
 
 
