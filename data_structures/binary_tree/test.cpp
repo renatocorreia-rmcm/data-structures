@@ -33,6 +33,7 @@ int main(){
     cout << ( bt.find(4) == false ) << '\n';
 
     bt.print_preorder();
+    bt.print_inorder();
 
 
 

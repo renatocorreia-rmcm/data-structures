@@ -58,13 +58,14 @@ private:
         }
     }
     void print_inorder(node* root){
-        if (root->left!=nullptr)
-        {
-            print_preorder(root->left);
+        if (root->left!=nullptr){
+            print_inorder(root->left);
         }
+
         cout << root->value << " ";
+        
         if (root->right!=nullptr){
-            print_preorder(root->right);
+            print_inorder(root->right);
         }
     }
 
@@ -103,7 +104,7 @@ public:
         {
             print_preorder(root);
         }
-        
+        cout << '\n';
     }
 
     void print_inorder(){
@@ -111,6 +112,7 @@ public:
         {
             print_inorder(root);
         }
+        cout << '\n';
     }
 
     int get_height(){
