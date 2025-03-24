@@ -47,6 +47,20 @@ private:
         return std::max(get_height(sub_root->left), get_height(sub_root->right))+1;
     }
 
+    void rec_print_preorder(node* root){
+        cout << root->value << " ";
+        if (root->left!=nullptr)
+        {
+            rec_print_preorder(root->left);
+        }
+        if (root->right!=nullptr){
+            rec_print_preorder(root->right);
+        }
+        
+        
+        
+    }
+
 public:
 
     bool find(int value){
@@ -72,6 +86,14 @@ public:
             
         }
 
+    }
+
+    void print_preorder(){
+        if (root!=nullptr)
+        {
+            rec_print_preorder(root);
+        }
+        
     }
 
     int get_height(){

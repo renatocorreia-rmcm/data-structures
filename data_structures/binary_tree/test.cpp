@@ -1,7 +1,7 @@
 #include <iostream>
-#include "binary_tree.hpp"
 
 using namespace std;
+#include "binary_tree.hpp"
 
 
 int main(){
@@ -31,6 +31,9 @@ int main(){
     cout << ( bt.get_height() == 2) << '\n';
 
     cout << ( bt.find(4) == false ) << '\n';
+
+    bt.print_preorder();
+
 
 
 
