@@ -84,7 +84,26 @@ private:
         cout << root->value << " ";
     }
 
+    void clear(node* root){
+        if (root->left!=nullptr){
+            clear (root->left);
+        }
+        if (root->right!=nullptr){
+            clear (root->right);
+        }
+        delete root;
+    }
 public:
+
+    void clear(){
+        if (root!=nullptr)
+        {
+            
+            clear(root);
+            root = nullptr;
+            /* code */
+        }
+    }
 
     bool find(int value){
 
