@@ -36,6 +36,10 @@ int main(){
     bt.print_inorder();
     bt.print_posorder();
 
+    bt.clear();
+    cout << (bt.find(1) == false) << '\n';
+    cout << (bt.get_height() == 0) << '\n';
+
 
 
 
